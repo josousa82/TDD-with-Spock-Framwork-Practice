@@ -11,6 +11,8 @@ import java.util.stream.Collectors;
  **/
 public abstract class AbstractInventory {
 
+
+
     public int isProductAvailable(String productName, List<Product> products ) {
         return (int) products.stream().filter(product -> product.getName().equals(productName)).count();
     }
@@ -35,8 +37,11 @@ public abstract class AbstractInventory {
 
     public Map<String, Long> getProductTypesCount(List<Product> products){
         return products.stream()
-                .map(Product::getType)
+                .map(AbstractInventory::apply)
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+    }
+    private static String apply(Product p) {
+        return p.getType().toLowerCase();
     }
 
     public void setWarehouseInventory(WareHouseInventory warehouseInventory){
@@ -46,4 +51,13 @@ public abstract class AbstractInventory {
     public boolean canShipCompletely(){
         return false;
     }
+
+    public Long getCurrentWeight(List<Product> products){
+        return products.stream()
+                .mapToLong(Product::getWeight)
+                .sum();
+    }
+
+
+
 }

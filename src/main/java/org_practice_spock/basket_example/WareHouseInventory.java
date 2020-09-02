@@ -10,7 +10,7 @@ import java.util.List;
  * in package - org_practice_spock.basket_example
  **/
 @Data
-public class WareHouseInventory extends AbstractInventory implements InventoryInterface{
+public class WareHouseInventory extends AbstractInventory implements WarehouseInterface{
 
     List<Product> inventory = new ArrayList<>();
 
