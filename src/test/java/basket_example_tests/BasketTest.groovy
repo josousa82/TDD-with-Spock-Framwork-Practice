@@ -21,14 +21,15 @@ class BasketTest extends Specification{
                 .price(1200)
                 .type("TV")
                 .weight(18)
-                .build();
+                .build()
+
         camera = Product.builder()
                 .name("Panasonic")
                 .id(2L)
                 .price(350)
                 .type("camera")
                 .weight(2)
-                .build();
+                .build()
     }
 
     def "A Basket with one product heas equal weight"(){
