@@ -23,7 +23,7 @@ class BasketTest extends Specification{
             def basket = new Basket()
 
         when: "user wants to buy the tv"
-            basket.addProduct(tv)
+            basket.addProduct tv
 
         then:
         basket.currentWeight == tv.weight
@@ -33,8 +33,8 @@ class BasketTest extends Specification{
         given: "An empty Basket"
             def basket = new Basket()
         when: "User buys a tv and a camera"
-            basket.addProduct(tv)
-            basket.addProduct(camera)
+            basket.addProduct tv
+            basket.addProduct camera
 
         then:
             basket.currentWeight == (tv.weight + camera.weight)
@@ -45,9 +45,9 @@ class BasketTest extends Specification{
             def basket = new Basket()
 
         when: "User buys three products"
-            basket.addProduct(tv)
-            basket.addProduct(camera)
-            basket.addProduct(hifi)
+            basket.addProduct tv
+            basket.addProduct camera
+            basket.addProduct hifi
 
         then: "Basket weight should be the sum of the products in the basket"
         basket.currentWeight == (tv.weight + camera.weight + hifi.weight)
