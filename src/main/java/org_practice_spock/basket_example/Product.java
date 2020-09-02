@@ -8,6 +8,7 @@ import lombok.*;
  **/
 @Data
 @Builder
+@AllArgsConstructor
 public class Product {
     Long id;
     private String name;
